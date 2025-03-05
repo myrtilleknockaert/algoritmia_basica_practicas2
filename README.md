@@ -25,6 +25,19 @@ El directorio contiene:
 ---
 
 ## 📌 4. Instrucciones de uso
-### Conceder derechos de ejecución
+
+### Grant Execution Rights and Prepare the Environment
+
+First, make the `ejecutar.sh` script executable and run it to set up the environment:
+
 ```sh
 chmod +x ejecutar.sh
+./ejecutar.sh
+```
+
+## 📌 5. Ejecutar las pruebas
+
+Para probar la ejecución del algoritmo de reducción de costuras con una imagen de prueba, asegúrese de haber preparado el entorno siguiendo las instrucciones de la sección 4. Luego, ejecute el siguiente comando desde el directorio raíz del proyecto:
+
+```sh
+./seam_carving.py 50 experimentacion/elefante.jpg ./
