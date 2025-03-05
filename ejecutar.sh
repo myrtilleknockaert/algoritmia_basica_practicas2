@@ -1,35 +1,45 @@
 #!/bin/bash
-# This script automates the execution of the seam carving algorithm.
-# Usage: ./ejecutar.sh <number_of_seams> <image_file> <output_directory>
-# Example: ./ejecutar.sh 5 photo.png /tmp/
+# ejecutar.sh
+# This script prepares the environment for running the seam carving command.
+# It will check for Python3 and pip, create a virtual environment,
+# install necessary dependencies, and set the proper permissions.
 
-# Check if the correct number of arguments is provided
-if [ "$#" -ne 3 ]; then
-    echo "Usage: $0 <number_of_seams> <image_file> <output_directory>"
+# Check if Python3 is installed
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "Error: Python3 is not installed. Please install Python3 and try again."
     exit 1
 fi
 
-NUM_SEAMS="$1"
-IMAGE_FILE="$2"
-OUTPUT_DIR="$3"
-
-# Verify that the image file exists
-if [ ! -f "$IMAGE_FILE" ]; then
-    echo "Error: Image file '$IMAGE_FILE' not found."
+# Check if pip3 is installed
+if ! command -v pip3 >/dev/null 2>&1; then
+    echo "Error: pip3 is not installed. Please install pip3 and try again."
     exit 1
 fi
 
-# Create output directory if it does not exist
-if [ ! -d "$OUTPUT_DIR" ]; then
-    echo "Output directory '$OUTPUT_DIR' does not exist. Creating it..."
-    mkdir -p "$OUTPUT_DIR"
+# Create a virtual environment if it doesn't exist
+if [ ! -d "venv" ]; then
+    echo "Creating virtual environment..."
+    python3 -m venv venv
 fi
 
-# Ensure the output directory path ends with a slash
-case "$OUTPUT_DIR" in
-    */) ;;  # Already ends with /
-    *) OUTPUT_DIR="${OUTPUT_DIR}/" ;;
-esac
+# Activate the virtual environment
+source venv/bin/activate
 
-# Execute the Python seam carving script
-python3 seam_carving.py "$NUM_SEAMS" "$IMAGE_FILE" "$OUTPUT_DIR"
+# Upgrade pip to the latest version
+echo "Upgrading pip..."
+pip install --upgrade pip
+
+# Install the required Python packages
+echo "Installing required packages: numpy, matplotlib..."
+pip install numpy matplotlib
+
+# Ensure the main script is executable (assuming it's named seam_carving.py)
+chmod +x seam_carving.py
+
+echo "Environment is ready!"
+echo "You can now run the command:"
+echo "  ./seam_carving.py <num_seams> <image_file> <output_directory>"
+echo "For example:"
+echo "  ./seam_carving.py 50 photo.png ./"
+
+# End of script
