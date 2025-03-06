@@ -241,11 +241,6 @@ def final_function(num_seams: int, image_file: str, output_dir: str) -> None:
     # Save the final image result
     mpimg.imsave(final_output_path, img)
     print("Saved final result image:", final_output_path)
-    # Optionally, display the final image
-    plt.imshow(img)
-    plt.axis("off")
-    plt.show()
-
 
 if __name__ == "__main__":
     # Ensure the proper number of command-line arguments are provided
