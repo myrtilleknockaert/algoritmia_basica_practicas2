@@ -14,11 +14,10 @@ El objetivo es **reducir el ancho de las imágenes** mediante la eliminación it
 ---
 
 ## 📌 3. Organización de archivos
-### 📂 `practica2_<NIA>`
+### 📂 `practica2_950123_950134/`
 El directorio contiene:
 - **📜 `README.md`** → Explicación del proyecto (este archivo).
 - **📜 `seam_carving.py`** → Script principal que implementa el algoritmo de reducción de costuras.
-- **📜 `test_seam_carving.py`** → Funciones de test para validar el funcionamiento del algoritmo.
 - **📜 `ejecutar.sh`** → Automatización de la ejecución del programa.
 - **📂 `experimentacion`** → Imágenes de prueba para evaluar el algoritmo.
 
