@@ -27,7 +27,7 @@ El directorio contiene:
 
 ### Grant Execution Rights and Prepare the Environment
 
-First, make the `ejecutar.sh` script executable and run it to set up the environment:
+Primero, haga que el script `ejecutar.sh` sea ejecutable y ejecútelo para configurar el entorno:
 
 ```sh
 chmod +x ejecutar.sh
